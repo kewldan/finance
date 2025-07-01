@@ -1,0 +1,29 @@
+services:
+  proxy:
+    image: nginx
+    restart: unless-stopped
+    expose:
+      - 80
+    networks:
+      - backend
+      - virtual-hosts
+    depends_on:
+      - web
+    labels:
+      - traefik.http.routers.lk-finance-web.rule=Host(`kwldn.tom-market.ru`)
+      - traefik.enable=true
+      - traefik.http.services.lk-finance-web.loadbalancer.server.port=80
+    volumes:
+      - ./conf.d:/etc/nginx/conf.d:ro
+  web:
+    build: .
+    restart: unless-stopped
+    expose:
+      - 80
+    networks:
+      - backend
+
+networks:
+  backend:
+  virtual-hosts:
+    external: true
