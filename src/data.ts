@@ -339,5 +339,19 @@ export const records: IncomeRecord[] = [
         date: new Date(2025, 5, 30), // June 30, 2025
         source: 'danek',
         comment: 'UPD 0.7'
-    }
+    },
+    {
+        amount: 287,
+        account: 'bingx',
+        date: new Date(2025, 6, 19),
+        source: 'vpn',
+        comment: '+тиньк'
+    },
+    {
+        amount: 526,
+        account: 'bingx',
+        date: new Date(2025, 6, 20),
+        source: 'egor',
+        comment: 'Доля'
+    },
 ]
